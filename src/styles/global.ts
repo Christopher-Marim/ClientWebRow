@@ -8,10 +8,9 @@ export const Global = createGlobalStyle`
     box-sizing: border-box;
   }
   :root {
-      background: linear-gradient(#7C2629,#3D1414);
+      background: linear-gradient(#710609,#290808);
       background-size:cover;
       background-repeat:no-repeat ;
-      font-size: ${px2vw(24)};
       font-family: 'Inter', sans-serif ;
       color:white;
     }
