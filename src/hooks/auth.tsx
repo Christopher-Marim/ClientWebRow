@@ -6,21 +6,18 @@ import {useNavigate} from 'react-router-dom';
 
 interface User {
   nome: string;
-  login: string;
-  senha: string;
-  admin:boolean;
+  cpf: string;
 }
 
 interface RequestSignIn {
-  login: string;
-  senha: string;
+  cpf: string;
 }
 
 interface AuthContextData {
   signed: boolean;
   user: User | null;
   loading: boolean;
-  signIn({ login, senha }: RequestSignIn): Promise<void>;
+  signIn({ cpf }: RequestSignIn): Promise<void>;
   signOut(): void;
 }
 
@@ -40,9 +37,9 @@ const AuthProvider: React.FC = ({ children }) => {
   
   },[])
 
-  async function signIn({ login, senha }: RequestSignIn) {
+  async function signIn({cpf}: RequestSignIn) {
     setLoading(true);
-    const response = await auth.signIn({ login, senha });
+    const response = await auth.signIn({ cpf });
     if(response){
       setUser(response.user);
       localStorage.clear();

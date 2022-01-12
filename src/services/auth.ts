@@ -4,28 +4,23 @@ interface Response {
   token: string;
   user: {
     nome: string,
-    login: string,
-    senha: string,
-    admin:boolean
+    cpf: string,
   };
 }
 interface RequestSignIn {
-  login: string,
-  senha: string
+  cpf: string,
 }
 
-export async function signIn({ login, senha }: RequestSignIn): Promise<Response|void> {
+export async function signIn({ cpf}: RequestSignIn): Promise<Response|void> {
   try {
-    const { data, status } = await api.get(`/acesso?method=loginApp&pLogin=${login}&pSenha=${senha}`)
+    const { data, status } = await api.get(`/acesso?method=loginApp&pLogin=${cpf}`)
     const user = data?.data[0]
     return new Promise((resolve) => {
       resolve({
         token: `${user?.chave}`,
         user: {
           nome: `${user?.nome}`,
-          login: `${login}`,
-          senha: `${senha}`,
-          admin: user?.admin == "1"?true:false
+          cpf: `${cpf}`
         }
       });
     });   
