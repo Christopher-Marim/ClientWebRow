@@ -1,7 +1,13 @@
 import logo from "../../assets/LOGO.svg";
 
-export function Logo(){
+interface Props {
+    width:number;
+    height:number;
+
+}
+
+export function Logo({width, height}:Props){
     return(
-        <img src={logo} style={{ marginBottom:50, objectFit:"contain"}} width={350} height={150}></img>
+        <img src={logo} style={{ marginBottom:50, objectFit:"contain"}} width={width} height={height}></img>
     )
 }

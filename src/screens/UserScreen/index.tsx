@@ -28,7 +28,7 @@ export function UserScreen() {
 
   return (
     <Container>
-      <Logo></Logo>
+      <Logo width={350} height={150}></Logo>
       <img
         className="imgUser"
         src={userAux.img}
@@ -42,7 +42,7 @@ export function UserScreen() {
               , pedimos para que aguarde sua vez, logo mais você será atendido.
             </h3>
       {
-        (userAux.queue.length !== 0) && (
+        (userAux.queue.length == 0) && (
           <>
             <h3>
               Olá{' '}

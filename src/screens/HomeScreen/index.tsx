@@ -30,7 +30,7 @@ export function HomeScreen() {
   }
   return (
     <Container>
-      <Logo></Logo>
+      <Logo width={350} height={150}></Logo>
       <WrapperLogin>
         <h5>Digite seu CPF</h5>
         <input
